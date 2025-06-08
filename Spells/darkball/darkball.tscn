@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyy7ap4pg8hgc"]
+
+[ext_resource type="PackedScene" uid="uid://b8htwbfiulg2q" path="res://Spells/mainball/mainball.tscn" id="1_pprjy"]
+[ext_resource type="Script" uid="uid://clhjw2kk7xjpp" path="res://Spells/darkball/darkball.gd" id="2_ot51g"]
+
+[node name="darkball" instance=ExtResource("1_pprjy")]
+script = ExtResource("2_ot51g")
+Element = "Darkness"
+
+[node name="CPUParticles2D" parent="." index="2"]
+color = Color(0.893065, 0.332219, 0.154898, 1)

@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://dk5f4xhlah3b4"]
+
+[ext_resource type="Script" uid="uid://bt353sklcrgwy" path="res://Enemies/mannequin/mannequin.gd" id="1_mkshj"]
+[ext_resource type="Texture2D" uid="uid://cibn6yqpl5g1w" path="res://Enemies/mannequin/00 Gun-export.png" id="1_o8u6u"]
+[ext_resource type="PackedScene" uid="uid://cyy7ap4pg8hgc" path="res://Spells/darkball/darkball.tscn" id="2_1t8ed"]
+[ext_resource type="PackedScene" uid="uid://b8htwbfiulg2q" path="res://Spells/mainball/mainball.tscn" id="2_8hnip"]
+[ext_resource type="PackedScene" uid="uid://bnmpoygo42pki" path="res://Spells/lightball/lightball.tscn" id="3_fvgay"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih5n7"]
+atlas = ExtResource("1_o8u6u")
+region = Rect2(0, 0, 66, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_enlyc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih5n7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ce413"]
+size = Vector2(66, 37)
+
+[node name="mannequin" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_mkshj")
+mainball_scene = ExtResource("2_8hnip")
+darkball_scene = ExtResource("2_1t8ed")
+lightball_scene = ExtResource("3_fvgay")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_enlyc")
+animation = &"idle"
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ce413")
+
+[node name="Timer" type="Timer" parent="."]

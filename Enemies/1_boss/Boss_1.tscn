@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://bux26di255xbf"]
+
+[ext_resource type="Texture2D" uid="uid://dbnssaf15m0aw" path="res://Enemies/1_boss/Idle_2-sheet.png" id="1_haqfd"]
+[ext_resource type="Script" uid="uid://b07cpx8hgdvqw" path="res://Enemies/1_boss/StateMachine/idle_air.gd" id="2_bdc81"]
+[ext_resource type="Script" uid="uid://cypmseuui4n3l" path="res://Enemies/1_boss/StateMachine/state_machine.gd" id="2_nt63x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8n0r"]
+atlas = ExtResource("1_haqfd")
+region = Rect2(0, 0, 128, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab5qk"]
+atlas = ExtResource("1_haqfd")
+region = Rect2(128, 0, 128, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x550f"]
+atlas = ExtResource("1_haqfd")
+region = Rect2(256, 0, 128, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rirma"]
+atlas = ExtResource("1_haqfd")
+region = Rect2(384, 0, 128, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox4xr"]
+atlas = ExtResource("1_haqfd")
+region = Rect2(512, 0, 128, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w8nr"]
+atlas = ExtResource("1_haqfd")
+region = Rect2(640, 0, 128, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw44l"]
+atlas = ExtResource("1_haqfd")
+region = Rect2(768, 0, 128, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acsnp"]
+atlas = ExtResource("1_haqfd")
+region = Rect2(896, 0, 128, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pfnk4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8n0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab5qk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x550f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rirma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox4xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w8nr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw44l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acsnp")
+}],
+"loop": true,
+"name": &"Idle_air",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwt1u"]
+radius = 13.0
+height = 98.0
+
+[node name="Boss_1" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.0735245, 0)
+scale = Vector2(1.45588, 1.45588)
+sprite_frames = SubResource("SpriteFrames_pfnk4")
+animation = &"Idle_air"
+frame_progress = 0.755387
+centered = false
+offset = Vector2(-55, -68)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -48)
+shape = SubResource("CapsuleShape2D_gwt1u")
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("2_nt63x")
+
+[node name="Idle_air" type="Node2D" parent="StateMachine"]
+script = ExtResource("2_bdc81")
+
+[node name="Run_away" type="Node2D" parent="StateMachine"]

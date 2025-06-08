@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://giphec2yq06o"]
+
+[ext_resource type="Script" uid="uid://c0d225h3c7mnu" path="res://Spells/Parent_spell/parent_spell.gd" id="1_mf7qg"]
+
+[node name="Parent_spell" type="Area2D"]
+script = ExtResource("1_mf7qg")
