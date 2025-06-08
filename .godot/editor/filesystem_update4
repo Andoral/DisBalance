@@ -1,0 +1,19 @@
+res://Enemies/1_boss/Boss_1.tscn
+res://Enemies/BaseEnemy/BaseEnemy.tscn
+res://Enemies/girl_knight/girl_knight.tscn
+res://Enemies/mannequin/mannequin.tscn
+res://Enemies/SuperBoris(2_boss)/super_boris.tscn
+res://GUI/UI/UI.tscn
+res://Location1/Location1.tscn
+res://Location2/Location2.tscn
+res://Location3/Location3.tscn
+res://Location sandbox/sandbox_lvl_2.tscn
+res://player/AttackTrail/attack_trail.tscn
+res://player/death_effect.tscn
+res://player/player_2.tscn
+res://player(unused)/player.tscn
+res://Spells/darkball/darkball.tscn
+res://Spells/lightball/lightball.tscn
+res://Spells/mainball/mainball.tscn
+res://Spells/Parent_spell/parent_spell.tscn
+res://README.md

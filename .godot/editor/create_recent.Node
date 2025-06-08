@@ -1,0 +1,12 @@
+Node2D
+CollisionShape2D
+Area2D
+AnimatedSprite2D
+Sprite2D
+CharacterBody2D
+Node
+Label
+Timer
+Panel
+TextureProgressBar
+Control
