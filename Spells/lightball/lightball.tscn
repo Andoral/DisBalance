@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnmpoygo42pki"]
+
+[ext_resource type="PackedScene" uid="uid://b8htwbfiulg2q" path="res://Spells/mainball/mainball.tscn" id="1_3sxqh"]
+[ext_resource type="Script" uid="uid://bv7un6xf8homx" path="res://Spells/lightball/lightball.gd" id="2_atjri"]
+
+[node name="lightball" instance=ExtResource("1_3sxqh")]
+script = ExtResource("2_atjri")
+Element = "Light"

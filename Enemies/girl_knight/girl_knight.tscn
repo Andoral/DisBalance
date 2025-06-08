@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://bw7wi63vbkhoj"]
+
+[ext_resource type="Script" uid="uid://6dyewble3fkg" path="res://Enemies/girl_knight/girl_knight.gd" id="1_3p74w"]
+[ext_resource type="Texture2D" uid="uid://besgn6hr1c4e4" path="res://Enemies/girl_knight/BloodIdle_KG_2.png" id="2_pvxp1"]
+[ext_resource type="Texture2D" uid="uid://cy3niw2hyb82v" path="res://GUI/hp_bar/redMeter10.png" id="3_2b3es"]
+[ext_resource type="Texture2D" uid="uid://dss5sdk8e3xdl" path="res://GUI/hp_bar/redMeter01.png" id="4_rcmy7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgsdq"]
+atlas = ExtResource("2_pvxp1")
+region = Rect2(0, 0, 100, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sfxp"]
+atlas = ExtResource("2_pvxp1")
+region = Rect2(100, 0, 100, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipt4w"]
+atlas = ExtResource("2_pvxp1")
+region = Rect2(200, 0, 100, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1m11"]
+atlas = ExtResource("2_pvxp1")
+region = Rect2(300, 0, 100, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jxhqh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgsdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sfxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipt4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1m11")
+}],
+"loop": true,
+"name": &"idle_1",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wj4u7"]
+radius = 12.25
+height = 62.0
+
+[node name="girl_knight" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_3p74w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_jxhqh")
+animation = &"idle_1"
+frame_progress = 0.545336
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -31)
+shape = SubResource("CapsuleShape2D_wj4u7")
+
+[node name="HealthBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -72.0
+offset_right = 32.0
+offset_bottom = -64.0
+texture_under = ExtResource("4_rcmy7")
+texture_progress = ExtResource("3_2b3es")
